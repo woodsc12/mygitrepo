@@ -1,0 +1,46 @@
+# Cyber professional selects which data they would like to view. Usernames or passwords.
+# Open the specified data from a local file
+# Print usernames/passwords
+# Identify username/passwords that do not meet 8 character requirement
+# Refer for security awareness training
+
+import time
+
+print('What user data would you like to view? (Enter a number)')
+print('1. usernames\n2. passwords')
+print()
+rsp = input()
+
+time.sleep(1)
+
+while True:
+    if rsp == "1":
+        f_hand = open('usernames.txt')
+        rd = f_hand.read()
+        print()
+        print('Below are the usernames of the users on the network:')
+        print(rd)
+        break
+
+    elif rsp == "2":
+        f_hand = open('passwords.txt')
+        rd = f_hand.read()
+        print()
+        print("Below are the passwords of the users on the network:")
+        print(rd)
+        break
+
+    else:
+        print('Please enter a number between 1-2')
+        rsp = input()
+
+print()
+time.sleep(2)
+
+words = rd.split()
+for word in words:
+    if len(word) < 8:
+        print(f'Identified username/password less than 8 characters in length:', word)
+print()
+time.sleep(2)
+print('The users associated with this username/password must accomplish security awareness training within 30 days')
